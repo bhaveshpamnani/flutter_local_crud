@@ -16,7 +16,7 @@ class _ListOfUserState extends State<ListOfUser> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Login List"),
+        title: Text("User List"),
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -108,9 +108,11 @@ class _ListOfUserState extends State<ListOfUser> {
                                                     padding: const EdgeInsets.all(12.0),
                                                     child: TextField(
                                                       controller:
-                                                          newageController,
+                                                          newphoneController,
                                                       decoration: InputDecoration(
-                                                          hintText: 'Enter Age',labelText: 'Enter Age',),
+                                                        hintText: 'Enter Phone',
+                                                        labelText: 'Enter Phone',
+                                                      ),
                                                     ),
                                                   ),
                                                   SizedBox(
@@ -120,11 +122,9 @@ class _ListOfUserState extends State<ListOfUser> {
                                                     padding: const EdgeInsets.all(12.0),
                                                     child: TextField(
                                                       controller:
-                                                          newphoneController,
+                                                      newageController,
                                                       decoration: InputDecoration(
-                                                        hintText: 'Enter Phone',
-                                                        labelText: 'Enter Phone',
-                                                      ),
+                                                        hintText: 'Enter Age',labelText: 'Enter Age',),
                                                     ),
                                                   ),
                                                   SizedBox(

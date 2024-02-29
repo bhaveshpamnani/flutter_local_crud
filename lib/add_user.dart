@@ -20,49 +20,79 @@ class _AddUserState extends State<AddUser> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Add User'),
+        actions: [
+          InkWell(
+            onTap: () {
+              return _navigateToListOfUser();
+            },
+            child: Container(
+              width: 60,
+              height: 40,
+              decoration: BoxDecoration(
+                  color: Colors.blueAccent,
+                  borderRadius: BorderRadius.circular(10)),
+              child: Center(child: Text('List')),
+            ),
+          ),
+        ],
       ),
       body: Form(
         key: _globalKey,
         child: Column(
           children: [
-            TextFormField(
-              controller: nameController,
-              decoration: InputDecoration(hintText: 'Enter Name'),
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: TextFormField(
+                controller: nameController,
+                decoration: InputDecoration(hintText: 'Enter Name'),
+              ),
             ),
             SizedBox(
               height: 20,
             ),
-            TextFormField(
-              controller: ageController,
-              decoration: InputDecoration(hintText: 'Enter Age'),
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: TextFormField(
+                controller: phoneController,
+                decoration: InputDecoration(hintText: 'Enter Phone'),
+              ),
             ),
             SizedBox(
               height: 20,
             ),
-            TextFormField(
-              controller: phoneController,
-              decoration: InputDecoration(hintText: 'Enter Phone'),
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: TextFormField(
+                controller: ageController,
+                decoration: InputDecoration(hintText: 'Enter Age'),
+              ),
             ),
-            SizedBox(
-              height: 20,
-            ),
-            ElevatedButton(
-              onPressed: () async {
-                if (_globalKey.currentState!.validate()) {
-                  await MyDatabase().insertRecordIntoTbl_User(
-                      nameController.text.toString(),
-                      phoneController.text.toString(),
-                      ageController.text.toString());
+            InkWell(
+              onTap : ()   async {
+                  if (_globalKey.currentState!.validate()) {
+                    await MyDatabase().insertRecordIntoTbl_User(
+                        nameController.text.toString(),
+                        phoneController.text.toString(),
+                        ageController.text.toString());
                     _navigateToListOfUser();
-                }
-              },
-              child: Text('Add'),
+                  }
+                },
+              child: Container(
+                width: 60,
+                height: 40,
+                decoration: BoxDecoration(
+                    color: Colors.red,
+                    borderRadius:
+                    BorderRadius.circular(10)),
+                child: Center(child: Text('Cancel')),
+              ),
             ),
           ],
         ),
       ),
     );
   }
+
   void _navigateToListOfUser() async {
     // Perform asynchronous operations here if needed
 
